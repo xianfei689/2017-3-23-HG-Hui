@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>H5 弹出框 for 汇购里程计算</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+
+<body>
+    <div style="margin-top: 100px;text-align: center;">
+        <input type="button" name="button" value="alert" style="width: 200px;height: 50px;background-color: orange;" id="alert">
+    </div>
+</body>
+<script type="text/javascript" src="js/lib/jquery/1.11.3/jquery.js"></script>
+<script type="text/javascript" src="js/alert.js"></script>
+<script type="text/javascript">
+$("#alert").click(function() {
+    var confirmSuccess = new $.Popup({
+        //弹出框类型必须传
+        type: "tip",
+        //这个是比例【里程数/消费金额】  默认是40  【可以不传】
+        arg: "40",
+        reset: function() {
+            // alert("点击重置的回调函数")
+        },
+        buy: function(totalMoney, totalLen) {
+            alert("输入的价格 ： " + totalMoney + " + 计算的里程 ： " + totalLen);
+        }
+    });
+});
+</script>
+
+</html>
